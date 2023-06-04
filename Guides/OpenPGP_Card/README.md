@@ -158,6 +158,14 @@ $ gpg-connect-agent /bye
 
 ### Git signing setup
 
+First, you need to fetch public keys corresponding to your card's private keys to your `gpg` keyring. These public keys must be available on a well-known PKP keyserver such as [OpenPGP](https://keys.openpgp.org) or under URL explicitly configured on the card. You need to run the following commands:
+
+```
+$ gpg --card-edit
+gpg/card> fetch
+gpg/card> quit
+```
+
 To force Git to sign every commit with your OpenPGP's card signing key, you need to run the following commands:
 
 ```
