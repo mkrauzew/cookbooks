@@ -18,12 +18,16 @@ gpg --output file.enc --symmetric file.plain
 
 ### Decrypt file
 
-:arrow_forward: The same command can decrypt both standard- and symmetrically-encrypted files.
-
-:arrow_forward: Decrypt calls can be piped together if there are multiple levels of encryption.
-
 ```
 gpg --output file.plain --decrypt file.enc
+```
+
+:arrow_forward: The same command can decrypt both standard- and symmetrically-encrypted files.
+
+:arrow_forward: Decrypt calls can be piped together if there are multiple levels of encryption,like so:
+
+```
+gpg --decrypt input.dat | gpg --output output.zip --decrypt
 ```
 
 ## Setting up GPG and SSH for use with OpenPGP card
