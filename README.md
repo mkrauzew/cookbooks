@@ -1,6 +1,6 @@
-# useful_snippets
+# Cookbooks
 
-Various useful snippets
+Various useful snippets and recipes
 
 ## Python
 
