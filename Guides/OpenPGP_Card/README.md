@@ -16,6 +16,12 @@ gpg --output file.enc --encrypt --recipient <keyid or uid> file.plain
 gpg --output file.enc --symmetric file.plain
 ```
 
+### Encrypt file while showing progress
+
+```
+pv < file.plain | gpg --verbose --output file.enc --recipient <keyid or uid> --encrypt -
+```
+
 ### Decrypt file
 
 ```
@@ -28,6 +34,12 @@ gpg --output file.plain --decrypt file.enc
 
 ```
 gpg --decrypt input.dat | gpg --output output.zip --decrypt
+```
+
+### Decrypt file while showing progress
+
+```
+pv < file.enc | gpg --verbose --output file.plain --decrypt -
 ```
 
 ## Setting up GPG and SSH for use with OpenPGP card
