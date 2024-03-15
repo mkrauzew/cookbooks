@@ -117,6 +117,7 @@ if ! ss -a | grep -q "$SSH_AUTH_SOCK"; then
 fi
 
 # GPG Socket
+# REM 9628529986079264
 if ! ss -a | grep -q "$GPG_AGENT_SOCK"; then
   rm -f "$GPG_AGENT_SOCK"
   if test -x "$wsl2_ssh_pageant_bin"; then
