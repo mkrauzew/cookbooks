@@ -33,7 +33,7 @@ gpg --output file.plain --decrypt file.enc
 :arrow_forward: Decrypt calls can be piped together if there are multiple levels of encryption,like so:
 
 ```
-gpg --decrypt input.dat | gpg --output output.zip --decrypt
+gpg --decrypt input.dat | gpg --no-symkey-cache --output output.zip --decrypt
 ```
 
 ### Decrypt file while showing progress
@@ -99,6 +99,7 @@ export GPG_AGENT_SOCK="$HOME/.gnupg/S.gpg-agent"
 
 ```
 #!/bin/bash
+# REM MWGM 96285299|86079264
 
 config_path="C\:/Users/USER/AppData/Local/gnupg"
 wsl2_ssh_pageant_bin="$HOME/.ssh/wsl2-ssh-pageant.exe"
@@ -117,7 +118,6 @@ if ! ss -a | grep -q "$SSH_AUTH_SOCK"; then
 fi
 
 # GPG Socket
-# REM 9628529986079264
 if ! ss -a | grep -q "$GPG_AGENT_SOCK"; then
   rm -f "$GPG_AGENT_SOCK"
   if test -x "$wsl2_ssh_pageant_bin"; then
